@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Language Classifier
+    </title>
+    <style>
+        .button, .link, body {
+        font-family: Arial, sans-serif; /* Set Arial as the preferred font */
+        }
+        body {
+            text-align: center;
+        }
+
+        /* Style for the submit button */
+        .button {
+          background-color: #4CAF50; /* Background color */
+          color: white; /* Text color */
+          padding: 10px 20px; /* Padding around text */
+          border:1.5px solid #000000; /* Remove border */
+          border-radius: 4px; /* Rounded corners */
+          cursor: pointer; /* Change cursor to a hand pointer on hover */
+          font-size: 16px; /* Font size */
+          margin-bottom: 20px;
+        }
+        .button:hover 
+        {
+        background-color: #45a049; /* Darker background color on hover */
+}
+        /* Style for link button */
+        .link {
+          display: inline-block;
+          text-decoration: none;
+          background-color:  #007bff; /* Background color */
+          color: white; /* Text color */
+          padding: 10px 20px; /* Padding around text */
+          border: 1.5px solid #000000; /* Remove border */
+          border-radius: 4px; /* Rounded corners */
+          cursor: pointer; /* Change cursor to a hand pointer on hover */
+          font-size: 16px; /* Font size */
+        }
+        .link:hover 
+        {
+        background-color: #0056b3; /* Darker background color on hover */
+}
+        .prediction-container {
+            opacity: 0; /* Initially hidden */
+            transform: translateY(-20px); /* Move up */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Animation transitions */
+            background-color: #f0f0f0; /* Background color for the box */
+            border: 1px solid #ccc; /* Border for the box */
+            padding: 10px 20px; /* Padding inside the box */
+            border-radius: 4px; /* Rounded corners */
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Box shadow for a raised effect */
+            width: 400px;
+            position: fixed;
+            top: 30%;
+            left: 33%;
+            
+        }
+
+        .show-prediction-container{
+            opacity: 1; /* Fully visible */
+            transform: translateY(0); /* Reset position */
+        }
+</style>
+</head>
+<body>
+    <h1>Language Classifier</h1>
+    <div>
+        <form method="POST" action = "/predict">
+            <textarea rows="2" cols="60" name="content" placeholder="Type a word here"
+            value="{{ text }}">{{word}}</textarea>
+            <div>
+                <button type="submit" class = "button">Go!</button>
+                <!-- <button type = "reset">Reset</button> can't reset input box after submission -->
+                <a href="/" class = "link">Reset</a>
+
+            </div>
+        </form>
+    </div>
+    <div>
+        {% if prediction %}
+        <div id="prediction-container" class="prediction-container">
+            {% if prediction == "English" %}
+            <h2 style="color: red">English</h2>
+            {% elif prediction == "Slovak" %}
+            <h2 style="color: blue">Slovak</h2>
+            {%else%}
+            <h2 style = "color: black">Czech</h2>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    <script>
+        // JavaScript to show the prediction container with animation
+        document.addEventListener("DOMContentLoaded", function () {
+            var predictionContainer = document.getElementById("prediction-container");
+            if (predictionContainer) {
+                setTimeout(function () {
+                    predictionContainer.classList.add("show-prediction-container");
+                }, 500); // Delay the animation for 500 milliseconds (adjust as needed)
+            }
+        });    
+    </script>
+</body>
+
+</html>
