@@ -11,10 +11,12 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
     word = request.form.get('content')
+    if not word.strip():
+        return render_template("index.html")
     vectorized_word = vectorizer.transform([word])
     prob = model.predict_proba(vectorized_word)
     prediction = model.predict(vectorized_word)
-    return render_template("index.html", prediction=prediction[0], word = word, prob=prob)
+    return render_template("index.html", prediction=prediction[0], word = word, prob=prob.tolist()[0])
     
 if __name__ == '__main__':
     app.run(host = "0.0.0.0",debug=True)#changes made get updated when refreshed
