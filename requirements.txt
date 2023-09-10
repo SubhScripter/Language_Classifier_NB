@@ -22,7 +22,7 @@ click==8.1.7
 cmake==3.27.2
 colorama==0.4.6
 comm==0.1.4
-conda==23.7.2
+conda==4.3.16
 conda-package-handling==2.2.0
 conda_package_streaming==0.9.0
 contourpy==1.1.0
