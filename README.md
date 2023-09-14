@@ -1,6 +1,6 @@
 # Language Classification by Naive Bayes
 This is a simple web application for language classification using Flask and a Naive Bayes classifier. The application allows users to input text, and it will predict whether the text is in English, Slovak, or Czech. Additionally, it displays a bar chart showing the predicted probabilities for each language.
-![image](https://github.com/SubhScripter/Language_Classifier_NB/assets/142106447/3790930a-79ce-48f5-9885-bc116ede70ff)
+![image](https://github.com/SubhScripter/Language_Classifier_NB/assets/142106447/03a7ac99-7e28-428c-b57e-dfe4e2c89d36)
 ## Features
 - **Text Input**: Users can enter text into a text area on the web page.
 - **Prediction**: After clicking the "Go!" button, the application will predict the language of the entered text.
