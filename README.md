@@ -22,17 +22,13 @@ This is a simple web application for language classification using Flask and a N
 
 To run this web application on your local machine, follow these steps:
 
-1. Clone this repository to your local machine.
-git clone https://github.com/SubhScripter/Language_Classifier_NB.git
+1. Clone this repository to your local machine. ```git clone https://github.com/SubhScripter/Language_Classifier_NB.git```
 
-2. Navigate to the project directory.
-cd language-classifier-web-app
+2. Navigate to the project directory. ```cd language-classifier-web-app```
 
-3. Install the required Python packages.
-pip install -r requirements.txt
+3. Install the required Python packages. ```pip install -r requirements.txt```
 
-4. Run the Flask application.
-python app.py
+4. Run the Flask application. ```python app.py```
 
 5. Open a web browser and go to `http://localhost:5000` to access the web application.
 
