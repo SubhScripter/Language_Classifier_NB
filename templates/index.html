@@ -92,10 +92,18 @@
             {% endif %}
         </div>
         {% endif %}
-        <div style ="width: 400px; height: 200px;">
+        <div id="predictionsChartContainer">
             <canvas id="predictionsChart"></canvas>
         </div>
         <style>
+            #predictionsChartContainer {
+                width: 400px;
+                height: 200px;
+                margin: 140px auto; /* Center the container horizontally */
+                display: flex;
+                justify-content: center; /* Center the content horizontally */
+                align-items: center; /* Center the content vertically */
+            }
             #predictionsChart {
                 width: 100%;
                 height: 100%;
@@ -141,7 +149,7 @@
             if (predictionContainer) {
                 setTimeout(function () {
                     predictionContainer.classList.add("show-prediction-container");
-                }, 500); // Delay the animation for 500 milliseconds (adjust as needed)
+                }, 40); // Delay the animation for 500 milliseconds (adjust as needed)
             }
         });    
     </script>
